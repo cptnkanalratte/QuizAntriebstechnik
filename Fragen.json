@@ -82,6 +82,15 @@
     "answer": 0
   },
   {
+    "question": "Die Drehzahl einer Asynchronmaschine lässt sich anpassen durch:",
+    "choices": [
+      "Anzahl Polpaare",
+      "Schlupf",
+      "Frequenz"
+    ],
+    "answer": [0, 1, 2]
+  },
+  {
     "question": "Das Anlaufmoment ist immer kleiner als das Nennmoment einer Asynchronmaschine.",
     "choices": [
       "Richtig",
@@ -576,6 +585,16 @@
       "Falsch"
     ],
     "answer": 1
+  },
+  {
+    "question": "Die Drehzahl einer Synchronmaschine lässt sich einstellen durch:",
+    "choices": [
+      "Anzahl der Polpaare",
+      "Spannung",
+      "Frequenz",
+      "Schlupf"
+    ],
+    "answer": [0, 2]
   },
   {
     "question": "Bei einem Bremschopper wird die überschüssige Energie während des Bremsvorganges in das Netz zurückgespeist.",
