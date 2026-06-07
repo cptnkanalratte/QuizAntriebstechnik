@@ -50,6 +50,7 @@
         .stats-bar {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-size: 0.9rem;
             font-weight: 600;
             color: #7f8c8d;
@@ -57,6 +58,64 @@
             background: var(--bg-color);
             padding: 10px 15px;
             border-radius: var(--border-radius);
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .stats-left {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Shuffle Toggle Switch Styling */
+        .shuffle-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .3s;
+            border-radius: 22px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(18px);
         }
 
         .progress-container {
@@ -78,8 +137,15 @@
         .question {
             font-size: 1.15rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
             line-height: 1.4;
+        }
+
+        .hint {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-style: italic;
         }
 
         .choices {
@@ -99,6 +165,9 @@
             transition: all 0.2s ease;
             outline: none;
             color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .choice-btn:hover:not([disabled]) {
@@ -106,14 +175,19 @@
             background-color: #f8fafc;
         }
 
-        .choice-btn.correct {
+        .choice-btn.selected {
+            border-color: var(--accent-color);
+            background-color: #ebf5fb;
+        }
+
+        .choice-btn.correct-truth {
             background-color: #edfdf4 !important;
             border-color: var(--correct-color) !important;
             color: #14532d !important;
             font-weight: 600;
         }
 
-        .choice-btn.wrong {
+        .choice-btn.wrong-selected {
             background-color: #fdf2f2 !important;
             border-color: var(--wrong-color) !important;
             color: #741b1b !important;
@@ -123,9 +197,10 @@
             margin-top: 25px;
             display: flex;
             justify-content: flex-end;
+            gap: 10px;
         }
 
-        .next-btn {
+        .action-btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
@@ -134,11 +209,15 @@
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: 600;
-            display: none;
         }
 
-        .next-btn:hover {
+        .action-btn:hover {
             opacity: 0.9;
+        }
+
+        #next-button {
+            background-color: #27ae60;
+            display: none;
         }
 
         .result-screen {
@@ -153,17 +232,6 @@
             margin: 20px 0;
         }
 
-        .restart-btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        
         .error-message {
             color: var(--wrong-color);
             text-align: center;
@@ -178,18 +246,29 @@
     
     <div id="quiz-interface">
         <div class="stats-bar">
-            <span id="question-counter">Frage: -- / --</span>
-            <span id="score-percentage">Richtig: 0%</span>
+            <div class="stats-left">
+                <span id="question-counter">Frage: -- / --</span>
+                <span id="score-percentage">Richtig: 0%</span>
+            </div>
+            <label class="shuffle-container">
+                <span>🔀 Zufällig</span>
+                <span class="switch">
+                    <input type="checkbox" id="shuffle-toggle" onchange="handleShuffleToggle()">
+                    <span class="slider"></span>
+                </span>
+            </label>
         </div>
         <div class="progress-container">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
         
         <div class="question" id="question-text">Lade Fragen aus Fragen.json...</div>
+        <div class="hint" id="question-hint"></div>
         <div class="choices" id="choices-container"></div>
         
         <div class="nav-actions">
-            <button class="next-btn" id="next-button" onclick="nextQuestion()">Nächste Frage</button>
+            <button class="action-btn" id="submit-button" onclick="checkAnswers()">Antwort prüfen</button>
+            <button class="action-btn" id="next-button" onclick="nextQuestion()">Nächste Frage</button>
         </div>
     </div>
 
@@ -198,26 +277,28 @@
         <p>Dein Ergebnis:</p>
         <div class="result-score" id="final-score">0 / 0</div>
         <p id="final-percentage">0% richtig beantwortet</p>
-        <button class="restart-btn" onclick="restartQuiz()">Quiz neustarten</button>
+        <button class="action-btn" onclick="restartQuiz()">Quiz neustarten</button>
     </div>
 </div>
 
 <script>
-    let questions = [];
+    let originalQuestions = []; // Unveränderte Original-Liste aus der JSON
+    let activeQuestions = [];   // Die aktuell genutzte Liste (evtl. gemischt)
     let currentQuestionIndex = 0;
     let correctAnswersCount = 0;
     let answeredQuestionsCount = 0;
+    let selectedIndices = [];
+    let isRevealed = false;
 
-    // AJAX/Fetch Aufruf zieht die Fragen live aus der Datei im selben Verzeichnis
     async function loadQuestions() {
         try {
             const response = await fetch('Fragen.json');
             if (!response.ok) {
                 throw new Error(`Fehler beim Laden: Server antwortete mit Status ${response.status}`);
             }
-            questions = await response.json();
+            originalQuestions = await response.json();
             
-            if (!Array.isArray(questions) || questions.length === 0) {
+            if (!Array.isArray(originalQuestions) || originalQuestions.length === 0) {
                 throw new Error("Die JSON-Datei ist leer oder hat kein gültiges Array-Format.");
             }
             
@@ -227,7 +308,7 @@
             document.getElementById('question-text').innerHTML = 
                 `<div class="error-message">Mensch, da lief was schief!<br><br>` +
                 `Die Datei <strong>Fragen.json</strong> konnte nicht geladen werden.<br>` +
-                `<small style="color: #7f8c8d; font-weight: normal;">Hinweis: Lokal im Browser (per Doppelklick auf die index.html) blockieren Browser diesen Ladevorgang aus Sicherheitsgründen (CORS). Sobald es auf GitHub Pages hochgeladen ist, funktioniert es perfekt!</small></div>`;
+                `<small style="color: #7f8c8d; font-weight: normal;">Hinweis: Überprüfe die Syntax deiner JSON-Datei.</small></div>`;
         }
     }
 
@@ -236,6 +317,14 @@
         correctAnswersCount = 0;
         answeredQuestionsCount = 0;
         
+        // Prüfen, ob der Shuffle-Schalter aktiv ist
+        const isShuffleActive = document.getElementById('shuffle-toggle').checked;
+        if (isShuffleActive) {
+            activeQuestions = shuffleArray([...originalQuestions]);
+        } else {
+            activeQuestions = [...originalQuestions];
+        }
+
         document.getElementById('quiz-interface').style.display = 'block';
         document.getElementById('result-screen').style.display = 'none';
         
@@ -243,69 +332,164 @@
         showQuestion();
     }
 
+    // Fisher-Yates Shuffle Algorithmus zum echten Durchmischen
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Falls man mitten im Quiz den Regler umschaltet
+    function handleShuffleToggle() {
+        const isShuffleActive = document.getElementById('shuffle-toggle').checked;
+        
+        if (isRevealed) {
+            // Wenn die aktuelle Frage schon beantwortet ist, mischen wir den Rest ab der NÄCHSTEN Frage
+            let remaining = activeQuestions.slice(currentQuestionIndex + 1);
+            if (isShuffleActive) {
+                remaining = shuffleArray(remaining);
+            } else {
+                // Zurück zur originalen Rest-Reihenfolge
+                const currentQuestionObj = activeQuestions[currentQuestionIndex];
+                const originalIdx = originalQuestions.indexOf(currentQuestionObj);
+                remaining = originalQuestions.slice(originalIdx + 1);
+            }
+            activeQuestions = activeQuestions.slice(0, currentQuestionIndex + 1).concat(remaining);
+        } else {
+            // Wenn die aktuelle Frage noch offen ist, behalten wir sie bei und mischen den Rest dahinter
+            let remaining = activeQuestions.slice(currentQuestionIndex + 1);
+            if (isShuffleActive) {
+                remaining = shuffleArray(remaining);
+            } else {
+                const currentQuestionObj = activeQuestions[currentQuestionIndex];
+                const originalIdx = originalQuestions.indexOf(currentQuestionObj);
+                // Hole alle Fragen aus dem Original, die nicht die aktuelle sind und noch nicht dran waren
+                // Da das komplexer ist, bauen wir eine einfache Zuordnung der ungespielten Fragen auf:
+                const playedQuestions = activeQuestions.slice(0, currentQuestionIndex + 1);
+                remaining = originalQuestions.filter(q => !playedQuestions.includes(q));
+            }
+            activeQuestions = activeQuestions.slice(0, currentQuestionIndex + 1).concat(remaining);
+        }
+        updateStats();
+    }
+
     function updateStats() {
-        document.getElementById('question-counter').innerText = `Frage: ${currentQuestionIndex + 1} / ${questions.length}`;
+        document.getElementById('question-counter').innerText = `Frage: ${currentQuestionIndex + 1} / ${activeQuestions.length}`;
         
         let percentage = answeredQuestionsCount === 0 ? 0 : Math.round((correctAnswersCount / answeredQuestionsCount) * 100);
         document.getElementById('score-percentage').innerText = `Richtig: ${percentage}%`;
         
-        let progressWidth = ((currentQuestionIndex) / questions.length) * 100;
+        let progressWidth = ((currentQuestionIndex) / activeQuestions.length) * 100;
         document.getElementById('progress-bar').style.width = `${progressWidth}%`;
     }
 
     function showQuestion() {
-        const currentQuestion = questions[currentQuestionIndex];
+        const currentQuestion = activeQuestions[currentQuestionIndex];
         document.getElementById('question-text').innerText = currentQuestion.question;
         
+        const isMultiple = Array.isArray(currentQuestion.answer) && currentQuestion.answer.length > 1;
+        document.getElementById('question-hint').innerText = isMultiple 
+            ? "ℹ️ Mehrere Antworten richtig (Mehrfachauswahl)" 
+            : "ℹ️ Eine Antwort richtig";
+
         const choicesContainer = document.getElementById('choices-container');
         choicesContainer.innerHTML = '';
         
+        selectedIndices = [];
+        isRevealed = false;
+        
+        document.getElementById('submit-button').style.display = 'block';
         document.getElementById('next-button').style.display = 'none';
 
         currentQuestion.choices.forEach((choice, index) => {
             const button = document.createElement('button');
             button.classList.add('choice-btn');
-            button.innerText = choice;
-            button.onclick = () => selectAnswer(index, button);
+            
+            const icon = isMultiple ? "☐ " : "○ ";
+            button.innerHTML = `<span class="bullet">${icon}</span>${choice}`;
+            
+            button.onclick = () => toggleSelect(index, button, isMultiple);
             choicesContainer.appendChild(button);
         });
         
         updateStats();
     }
 
-    function selectAnswer(selectedIndex, selectedButton) {
-        const currentQuestion = questions[currentQuestionIndex];
-        const choicesContainer = document.getElementById('choices-container');
-        const buttons = choicesContainer.getElementsByClassName('choice-btn');
-        
-        // Verhindert, dass man eine Frage mehrfach wertet, falls man mehrmals klickt
-        if (buttons[0].disabled) return;
+    function toggleSelect(index, button, isMultiple) {
+        if (isRevealed) return;
 
-        answeredQuestionsCount++;
-
-        if (selectedIndex === currentQuestion.answer) {
-            selectedButton.classList.add('correct');
-            correctAnswersCount++;
+        if (!isMultiple) {
+            selectedIndices = [index];
+            const buttons = document.getElementById('choices-container').getElementsByClassName('choice-btn');
+            for (let btn of buttons) {
+                btn.classList.remove('selected');
+                btn.querySelector('.bullet').innerText = "○ ";
+            }
+            button.classList.add('selected');
+            button.querySelector('.bullet').innerText = "● ";
         } else {
-            selectedButton.classList.add('wrong');
-            if(buttons[currentQuestion.answer]) {
-                buttons[currentQuestion.answer].classList.add('correct');
+            if (selectedIndices.includes(index)) {
+                selectedIndices = selectedIndices.filter(i => i !== index);
+                button.classList.remove('selected');
+                button.querySelector('.bullet').innerText = "☐ ";
+            } else {
+                selectedIndices.push(index);
+                button.classList.add('selected');
+                button.querySelector('.bullet').innerText = "☑ ";
             }
         }
+    }
 
-        for (let button of buttons) {
+    function checkAnswers() {
+        if (selectedIndices.length === 0) {
+            alert("Bitte wähle mindestens eine Antwort aus!");
+            return;
+        }
+
+        const currentQuestion = activeQuestions[currentQuestionIndex];
+        const buttons = document.getElementById('choices-container').getElementsByClassName('choice-btn');
+        isRevealed = true;
+        answeredQuestionsCount++;
+
+        const correctAnswers = Array.isArray(currentQuestion.answer) 
+            ? currentQuestion.answer 
+            : [currentQuestion.answer];
+
+        let isPerfect = true;
+
+        currentQuestion.choices.forEach((_, index) => {
+            const isCorrectAnswer = correctAnswers.includes(index);
+            const isUserSelected = selectedIndices.includes(index);
+            const button = buttons[index];
+
             button.disabled = true;
+            button.classList.remove('selected');
+
+            if (isCorrectAnswer) {
+                button.classList.add('correct-truth');
+                if (!isUserSelected) isPerfect = false;
+            } else if (isUserSelected) {
+                button.classList.add('wrong-selected');
+                isPerfect = false;
+            }
+        });
+
+        if (isPerfect) {
+            correctAnswersCount++;
         }
 
         let percentage = Math.round((correctAnswersCount / answeredQuestionsCount) * 100);
         document.getElementById('score-percentage').innerText = `Richtig: ${percentage}%`;
 
+        document.getElementById('submit-button').style.display = 'none';
         document.getElementById('next-button').style.display = 'block';
     }
 
     function nextQuestion() {
         currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
+        if (currentQuestionIndex < activeQuestions.length) {
             showQuestion();
         } else {
             showEndScreen();
@@ -316,8 +500,8 @@
         document.getElementById('quiz-interface').style.display = 'none';
         document.getElementById('result-screen').style.display = 'block';
         
-        document.getElementById('final-score').innerText = `${correctAnswersCount} / ${questions.length}`;
-        let finalPercentage = Math.round((correctAnswersCount / questions.length) * 100);
+        document.getElementById('final-score').innerText = `${correctAnswersCount} / ${activeQuestions.length}`;
+        let finalPercentage = Math.round((correctAnswersCount / activeQuestions.length) * 100);
         document.getElementById('final-percentage').innerText = `${finalPercentage}% der Fragen richtig beantwortet.`;
     }
 
@@ -325,18 +509,21 @@
         initQuiz();
     }
 
-    // Tastensteuerung hinzufügen (Leertaste für "Weiter" / "Neustart")
+    // Tastensteuerung (Leertaste)
     window.addEventListener('keydown', function(e) {
         if (e.key === ' ' || e.code === 'Space') {
+            const submitBtn = document.getElementById('submit-button');
             const nextBtn = document.getElementById('next-button');
             const resultScreen = document.getElementById('result-screen');
 
-            // Wenn das Quiz läuft und der "Nächste Frage"-Button sichtbar ist
-            if (nextBtn.style.display === 'block') {
-                e.preventDefault(); // Verhindert das Scrollen der Seite bei Leertaste
+            if (submitBtn.style.display === 'block' && selectedIndices.length > 0) {
+                e.preventDefault();
+                checkAnswers();
+            }
+            else if (nextBtn.style.display === 'block') {
+                e.preventDefault();
                 nextQuestion();
             } 
-            // Wenn der Endscreen sichtbar ist, startet die Leertaste das Quiz neu
             else if (resultScreen.style.display === 'block') {
                 e.preventDefault();
                 restartQuiz();
