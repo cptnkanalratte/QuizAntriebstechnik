@@ -1,0 +1,694 @@
+[
+  {
+    "question": "Der Dauerbetrieb (S1-Betrieb) wird definiert durch:",
+    "choices": [
+      "Thermischer Beharrungszustand",
+      "Belastung im Nennpunkt"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Charakteristisch für elektrische Motoren ist die:",
+    "choices": [
+      "Drehzahl-Drehmoment-Kennlinie",
+      "Strom-Drehmoment-Kennlinie"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Ist ein Antrieb ausgelegt für alle vier Quadranten, kann er als Motor und als Generator betrieben werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Zu welcher elektrischen Größe ist das Drehmoment einer Gleichstrommaschine proportional?",
+    "choices": [
+      "Zur induzierten Spannung",
+      "Zum Ankerstrom"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Wie verändert sich die Leerlaufdrehzahl einer fremderregten Gleichstrommaschine, wenn die Ankerspannung reduziert wird?",
+    "choices": [
+      "Die Drehzahl steigt an.",
+      "Die Drehzahl sinkt ab.",
+      "Die Drehzahl bleibt gleich."
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Drehrichtung einer selbsterregten Gleichstrommaschine kann durch Umpolung der geändert werden.",
+    "choices": [
+      "Ankerwicklung",
+      "Erregerwicklung"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Eine Gleichstrommaschine kann nicht als Generator betrieben werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Jede fremderregte Gleichstrommaschine besitzt einen Kommutator.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Was ist das Kippmoment?",
+    "choices": [
+      "Das maximale Moment, bei dem eine Gleichstrommaschine den maximal zulässigen Strom erreicht.",
+      "Das maximale Moment, das eine Gleichstrommaschine abgeben kann.",
+      "Das maximale Moment, das eine Drehstrommaschine abgeben kann."
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Asynchronmotoren können direkt am Netz betrieben werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Das Anlaufmoment ist immer kleiner als das Nennmoment einer Asynchronmaschine.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Je kleiner der Schlupf einer Asynchronmaschine,",
+    "choices": [
+      "desto größer die Drehzahl",
+      "desto kleiner die Drehzahl"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Käfigläufermotor und Schleifringläufermotor unterscheiden sich nur im Aufbau des Stators.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Drehzahl einer Synchronmaschine lässt sich erhöhen durch:",
+    "choices": [
+      "Erhöhung der Spannung",
+      "Erhöhung der Drehfeldfrequenz",
+      "Erhöhung des Stromes"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Magnete einer permanentmagneterregten Synchronmaschine beeinflussen:",
+    "choices": [
+      "Das Rastmoment",
+      "Das Drehmoment"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Eine Synchronmaschine wird als Generator eingesetzt und speist in ein Inselnetz ohne elektrische Last. Die Ausgangsspannung der Maschine ist abhängig von:",
+    "choices": [
+      "Der Drehzahl und dem Erregerstrom",
+      "Der Drehzahl",
+      "Dem Erregerstrom"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Der Zwischenkreis hat folgende Funktionen:",
+    "choices": [
+      "Energiepuffer",
+      "Trennung Gleichrichter und Wechselrichter",
+      "Verringerung von Netzstörungen"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Der S1-Betrieb nach Norm IEC 60034-1 wird definiert durch:",
+    "choices": [
+      "Dauerbetrieb mit konstanter Aufnahmeleistung",
+      "Dauerbetrieb mit konstanter Abgabeleistung",
+      "Thermischer Beharrungszustand"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Ist ein Antrieb für den ersten und den zweiten Quadranten ausgelegt, kann er als Motor und als Generator betrieben werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Wie verändert sich die Leerlaufdrehzahl einer fremderregten Gleichstrommaschine, wenn der Ankerwiderstand erhöht wird?",
+    "choices": [
+      "Die Leerlaufdrehzahl steigt an.",
+      "Die Leerlaufdrehzahl sinkt ab.",
+      "Die Leerlaufdrehzahl bleibt gleich."
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Die Bürsten einer selbsterregten Gleichstrommaschine beeinträchtigen:",
+    "choices": [
+      "Das Geräusch",
+      "Den Verschleiß",
+      "Die Temperatur"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Bei einer permanentmagneterregten Gleichstrommaschine entspricht die Anzahl der Kommutatorsegmente der Anzahl der Wicklungen.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Die Erregung einer fremderregten Gleichstrommaschine ist steuerbar.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Käfigläufer und Schleifringläufer gehören zur Kategorie und Gruppe der Asynchronmaschinen.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Je größer der Schlupf einer Asynchronmaschine,",
+    "choices": [
+      "desto größer die Drehzahl",
+      "desto kleiner die Drehzahl",
+      "desto kleiner der Wirkungsgrad"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Jede Asynchronmaschine besitzt drei Phasen.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Das Drehmoment einer Asynchronmaschine ist proportional zu:",
+    "choices": [
+      "Spannung",
+      "Strom"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Drehzahl einer Asynchronmaschine lässt sich erhöhen durch:",
+    "choices": [
+      "Erhöhung der Spannung",
+      "Erhöhung der Drehfeldfrequenz",
+      "Erhöhung der Anzahl der Pole"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Magnete einer permanentmagneterregten Synchronmaschine beeinflussen:",
+    "choices": [
+      "Das Geräusch",
+      "Das Drehmoment"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Oberflächenmagnete haben geringere Rastmomente als vergrabene Magnete.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Motortopologie wird definiert durch:",
+    "choices": [
+      "Anzahl der Phasen",
+      "Anzahl der Wicklungen",
+      "Anzahl der Pole"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Die Anzahl der Phasen ist immer ein Vielfaches der Wicklungsstränge.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Bei einer zweipoligen Maschine entspricht eine elektrische Periode einer mechanischen Periode.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Der Unterschied zwischen Block- und Sinuskommutierung resultiert in:",
+    "choices": [
+      "Stromsprüngen",
+      "Drehmomentschwankungen"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Permanentmagneterregte Bremsen erzeugen beim mechanischen Öffnen und Schließen Störimpulse.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Der Vorteil eines elektrischen Antriebes gegenüber einem pneumatischen Antrieb liegt in der besseren Energieeffizienz.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Wovon hängt die Baugröße einer elektrischen Maschine ab?",
+    "choices": [
+      "Von der maximalen Leistung",
+      "Vom maximalen Drehmoment",
+      "Von der maximalen Drehzahl"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Der S1-Betrieb nach Norm IEC 60034-1 (Dauerbetrieb) wird definiert durch:",
+    "choices": [
+      "Belastung im Nennpunkt",
+      "Dauerbetrieb mit konstanter Abgabeleistung",
+      "Thermischer Beharrungszustand"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Ist ein Antrieb für alle vier Quadranten ausgelegt, kann er nur als Motor und nicht als Generator betrieben werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Bei einer vierpoligen Maschine entspricht eine elektrische Periode zwei mechanischen Perioden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Zu welcher elektrischen Größe ist die Drehzahl einer Maschine proportional?",
+    "choices": [
+      "Strom",
+      "Spannung"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Zu welcher mechanischen Größe ist der Strom einer elektrischen Maschine proportional?",
+    "choices": [
+      "Drehzahl",
+      "Drehmoment"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Der Wirkungsgrad beschreibt das Verhältnis von abgegebener zu zugeführter Leistung.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Haben Drehmoment und Drehzahl entgegengesetzte Drehrichtungen, dann wirkt der Motor wie eine Bremse.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Die Bemessungsdaten eines elektrischen Antriebs beziehen sich auf den Dauerbetrieb.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Welche Leistung wird am Motortypenschild angegeben?",
+    "choices": [
+      "Elektrische Leistung",
+      "Mechanische Leistung"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Ist ein Antrieb für einen Quadranten ausgelegt, kann er nur als Motor und nicht als Generator betrieben werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Der Wirkungsgrad beschreibt das Verhältnis von zugeführter zu abgegebener Leistung.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Bei einem Bremschopper wird die überschüssige Energie bei einem Bremsvorgang in das Netz zurückgespeist.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Materialwahl der Bürsten einer selbsterregten Gleichstrommaschine beeinträchtigen:",
+    "choices": [
+      "Die Lebensdauer",
+      "Die Temperatur",
+      "Das Bürstenfeuer"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Das Drehmoment einer elektrischen Maschine ist proportional zu:",
+    "choices": [
+      "Strom",
+      "Spannung"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Die Erregung einer permanentmagneterregten Gleichstrommaschine ist steuerbar.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Käfigläufer und Schleifringläufer einer Asynchronmaschine unterscheiden sich im konstruktiven Aufbau des Stators.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Jede Synchronmaschine besitzt drei Phasen.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Eine Synchronmaschine kann nicht als Generator betrieben werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Lastträgheitsmomente werden mit dem Quadrat der Getriebe-Untersetzung verkleinert.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Encodersysteme dienen zur Erfassung der Drehzahl und/oder des Drehwinkels.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Inkrementelle Lagegeber geben ein Zählsignal in Form einer Impulsfolge aus.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Ein starker Motor besitzt eine steile Drehzahl-Drehmoment-Kennlinie.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Das Bremsmoment zur Bestimmung der Bremsengröße sollte mindestens dem Nennmoment des elektrischen Antriebs entsprechen.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Die Auswahl des elektrischen Stellgliedes erfolgt über die elektrische Eingangsleistung.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Zu welchen Größen ist die Drehzahl bzw. die Geschwindigkeit der Asynchron- und der Synchronmaschine proportional?",
+    "choices": [
+      "Frequenz",
+      "Spannung",
+      "Strom"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Beim Betrieb mit einem Inverter entsteht in einem Motor bei Bremsvorgängen generatorische Energie.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Ist eine hohe Drehzahl, eine schnelle Beschleunigung gefordert, dann ist eine schlanke Motorbauform notwendig.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Wovon hängt die Baugröße einer elektrischen Maschine ab?",
+    "choices": [
+      "Maximale Eingangsleistung",
+      "Maximale Ausgangsleistung",
+      "Drehmoment",
+      "Drehzahl"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Die Betriebsart S1 nach Norm IEC 60034-1 wird definiert durch:",
+    "choices": [
+      "Periodischen Aussetzbetrieb",
+      "Kurzzeitbetrieb",
+      "Dauerbetrieb"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Welche Leistung ist auf dem Typenschild eines elektrischen Motors angegeben?",
+    "choices": [
+      "Der Bemessungswert der elektrischen Leistung",
+      "Der Bemessungswert der mechanischen Leistung"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Asynchronmaschinen können in Stern oder in Dreieck verschaltet werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Ist ein Antrieb für den ersten Quadranten ausgelegt, kann der Antrieb als Motor oder als Generator betrieben werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Fremderregte und permanentmagneterregte Gleichstrommaschinen unterscheiden sich in der Anzahl der Pole.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Bei einem Bremschopper wird die überschüssige Energie während des Bremsvorganges in das Netz zurückgespeist.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Käfigläufer und Schleifringläufer einer Asynchronmaschine unterscheiden sich im konstruktiven Aufbau des Stators.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Das Kippmoment einer Asynchronmaschine ist immer kleiner als das Nennmoment der Asynchronmaschine.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Das Drehmoment einer elektrischen Maschine ist proportional zu:",
+    "choices": [
+      "Frequenz",
+      "Spannung",
+      "Strom"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Jede elektrische Maschine besitzt mindestens drei Phasenanschlüsse.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Lageinformation von Multiturn- und Singleturn-Absolutwertgebern ist nur in einem bestimmten Messbereich gültig.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die Anzahl der einlaufenden Pulse eines inkrementellen Drehlagegebers ist ein Maß für die eingetretene Winkeländerung.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Ein starker Motor besitzt eine steile Drehmoment-Drehzahl-Kennlinie.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Die optimale Getriebeuntersetzung wird aus dem Verhältnis der Trägheitsmomente von Last zu Motor bestimmt.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Der Kennwert der Bremse zur Bestimmung der Bremsengröße sollte mindestens dem doppelten erforderlichen Bremsmoment entsprechen.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Zur Auslegung des elektrischen Stellgliedes muss der Strombedarf des Motors während des Lastspiels ermittelt werden.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Ein Frequenzumrichter dient zur Ansteuerung von Gleichstrommotoren.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Ein Getriebemotor muss folgende Trägheitsmomente antreiben:",
+    "choices": [
+      "Das eigene Rotorträgheitsmoment",
+      "Das auf die Motorachse transformierte Lastträgheitsmoment",
+      "Das Getriebeträgheitsmoment"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Permanentmagneterregte Synchronmaschinen besitzen einen besseren Wirkungsgrad als bürstenbehaftete Gleichstrommaschinen.",
+    "choices": [
+      "Richtig",
+      "Falsch"
+    ],
+    "answer": 0
+  }
+]
