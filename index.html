@@ -211,7 +211,6 @@
     // AJAX/Fetch Aufruf zieht die Fragen live aus der Datei im selben Verzeichnis
     async function loadQuestions() {
         try {
-            // Holt die Fragen.json relativ vom Server/GitHub Pages Verzeichnis
             const response = await fetch('Fragen.json');
             if (!response.ok) {
                 throw new Error(`Fehler beim Laden: Server antwortete mit Status ${response.status}`);
@@ -279,6 +278,9 @@
         const choicesContainer = document.getElementById('choices-container');
         const buttons = choicesContainer.getElementsByClassName('choice-btn');
         
+        // Verhindert, dass man eine Frage mehrfach wertet, falls man mehrmals klickt
+        if (buttons[0].disabled) return;
+
         answeredQuestionsCount++;
 
         if (selectedIndex === currentQuestion.answer) {
@@ -322,6 +324,25 @@
     function restartQuiz() {
         initQuiz();
     }
+
+    // Tastensteuerung hinzufügen (Leertaste für "Weiter" / "Neustart")
+    window.addEventListener('keydown', function(e) {
+        if (e.key === ' ' || e.code === 'Space') {
+            const nextBtn = document.getElementById('next-button');
+            const resultScreen = document.getElementById('result-screen');
+
+            // Wenn das Quiz läuft und der "Nächste Frage"-Button sichtbar ist
+            if (nextBtn.style.display === 'block') {
+                e.preventDefault(); // Verhindert das Scrollen der Seite bei Leertaste
+                nextQuestion();
+            } 
+            // Wenn der Endscreen sichtbar ist, startet die Leertaste das Quiz neu
+            else if (resultScreen.style.display === 'block') {
+                e.preventDefault();
+                restartQuiz();
+            }
+        }
+    });
 
     window.onload = loadQuestions;
 </script>
