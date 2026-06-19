@@ -395,7 +395,7 @@
       "Richtig",
       "Falsch"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Der Wirkungsgrad beschreibt das Verhältnis von zugeführter zu abgegebener Leistung.",
@@ -420,7 +420,7 @@
       "Die Temperatur",
       "Das Bürstenfeuer"
     ],
-    "answer": 0
+    "answer": [0, 1, 2]
   },
   {
     "question": "Das Drehmoment einer elektrischen Maschine ist proportional zu:",
@@ -476,7 +476,7 @@
       "Richtig",
       "Falsch"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Inkrementelle Lagegeber geben ein Zählsignal in Form einer Impulsfolge aus.",
@@ -500,7 +500,7 @@
       "Richtig",
       "Falsch"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "question": "Die Auswahl des elektrischen Stellgliedes erfolgt über die elektrische Eingangsleistung.",
@@ -508,7 +508,7 @@
       "Richtig",
       "Falsch"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "question": "Zu welchen Größen ist die Drehzahl bzw. die Geschwindigkeit der Asynchron- und der Synchronmaschine proportional?",
@@ -517,7 +517,7 @@
       "Spannung",
       "Strom"
     ],
-    "answer": 0
+    "answer": [0, 1]
   },
   {
     "question": "Beim Betrieb mit einem Inverter entsteht in einem Motor bei Bremsvorgängen generatorische Energie.",
