@@ -182,7 +182,7 @@
       "Den Verschleiß",
       "Die Temperatur"
     ],
-    "answer": 1
+    "answer": [0, 1, 2]
   },
   {
     "question": "Bei einer permanentmagneterregten Gleichstrommaschine entspricht die Anzahl der Kommutatorsegmente der Anzahl der Wicklungen.",
